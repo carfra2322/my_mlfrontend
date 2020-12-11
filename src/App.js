@@ -40,7 +40,7 @@ const App = () => {
         headers: {'Access-Control-Allow-Origin': '*'}
     };
 
-    // axios.get(`http://ec2-54-86-153-64.compute-1.amazonaws.com:8080/classify/whatonearthishappening`)
+    // axios.get(`http://ec2-54-86-153-64.compute-1.amazonaws.com:5000/classify/whatonearthishappening`)
     //     .then(res => {
     //         const respdata = res.data;
     //         console.log(respdata)
@@ -62,7 +62,7 @@ const App = () => {
     }
 
     const handleStatus = () => {
-        axios.get('http://ec2-54-86-153-64.compute-1.amazonaws.com:8080/').then(
+        axios.get('http://ec2-54-86-153-64.compute-1.amazonaws.com:5000/').then(
             res => {
                 console.log('BACKEND', res.status)
                 setAPIStatus(res.status)
@@ -71,7 +71,7 @@ const App = () => {
     }
 
     const handleRecommend = () => {
-        axios.get(`http://ec2-54-86-153-64.compute-1.amazonaws.com:8080/classify/${value}`)
+        axios.get(`http://ec2-54-86-153-64.compute-1.amazonaws.com:5000/classify/${value}`)
             .then(res => {
                 const respdata = res.data;
                 console.log(respdata)
