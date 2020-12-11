@@ -14,7 +14,8 @@ import {
     ListItemAvatar
 }  from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-
+import CloudDoneIcon from '@material-ui/icons/CloudDone';
+import CloudOffIcon from '@material-ui/icons/CloudOff';
 
 
 
@@ -62,7 +63,7 @@ const App = () => {
     }
 
     const handleStatus = () => {
-        axios.get('http://ec2-54-86-153-64.compute-1.amazonaws.com:5000/').then(
+        axios.get('http://ec2-54-86-153-64.compute-1.amazonaws.com:8080/').then(
             res => {
                 console.log('BACKEND', res.status)
                 setAPIStatus(res.status)
@@ -71,7 +72,7 @@ const App = () => {
     }
 
     const handleRecommend = () => {
-        axios.get(`http://ec2-54-86-153-64.compute-1.amazonaws.com:5000/classify/${value}`)
+        axios.get(`http://ec2-54-86-153-64.compute-1.amazonaws.com:8080/classify/${value}`)
             .then(res => {
                 const respdata = res.data;
                 console.log(respdata)
@@ -156,7 +157,7 @@ const App = () => {
                 {resp}
             </div>
             <p>
-                BACK-END IS CURRENTLY { apiStatus == 200 ? 'ON' : 'OFF' }
+                ML API Service Status { apiStatus == 200 ? (<CloudDoneIcon/>) : (<CloudOffIcon/>)}
             </p>
         </header>
       </div>
